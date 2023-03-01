@@ -2,13 +2,11 @@ import type { NxJsonConfiguration } from '@nrwl/devkit';
 import {
   getPackageManagerCommand,
   isNotWindows,
-  listFiles,
   newProject,
   readFile,
   readJson,
-  readProjectConfig,
   cleanupProject,
-  rmDist,
+  removeFile,
   runCLI,
   runCLIAsync,
   runCommand,
@@ -182,8 +180,6 @@ describe('Nx Affected and Graph Tests', () => {
       mylib = uniq('mylib');
       const nxJson: NxJsonConfiguration = readJson('nx.json');
 
-      delete nxJson.implicitDependencies;
-
       updateFile('nx.json', JSON.stringify(nxJson));
       runCommand(`git init`);
       runCommand(`git config user.email "test@test.com"`);
@@ -261,6 +257,24 @@ describe('Nx Affected and Graph Tests', () => {
       expect(runCLI('affected:apps')).toContain(myapp);
       expect(runCLI('affected:apps')).toContain(myapp2);
       expect(runCLI('affected:libs')).not.toContain(mylib);
+    });
+
+    it('should handle file renames', () => {
+      generateAll();
+
+      // Move file
+      updateFile(
+        `apps/${myapp2}/src/index.html`,
+        readFile(`apps/${myapp}/src/index.html`)
+      );
+      removeFile(`apps/${myapp}/src/index.html`);
+
+      const affectedProjects = runCLI(
+        'print-affected --uncommitted --select projects'
+      ).split(', ');
+
+      expect(affectedProjects).toContain(myapp);
+      expect(affectedProjects).toContain(myapp2);
     });
   });
 
