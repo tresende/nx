@@ -37,6 +37,7 @@ export class GraphTooltipService {
             type: event.data.type,
             target: event.data.target,
             source: event.data.source,
+            sourceRoot: event.data.sourceRoot,
             fileDependencies: event.data.fileDependencies,
           });
           break;
@@ -57,7 +58,11 @@ export class GraphTooltipService {
   }
 
   openEdgeToolTip(ref: VirtualElement, props: ProjectEdgeNodeTooltipProps) {
-    this.currentTooltip = { type: 'projectEdge', ref, props };
+    this.currentTooltip = {
+      type: 'projectEdge',
+      ref,
+      props,
+    };
     this.broadcastChange();
   }
 

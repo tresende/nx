@@ -2,13 +2,13 @@ import { Shell } from './shell';
 import { redirect, RouteObject } from 'react-router-dom';
 import { ProjectsSidebar } from './feature-projects/projects-sidebar';
 import { TasksSidebar } from './feature-tasks/tasks-sidebar';
-import { getEnvironmentConfig } from './hooks/use-environment-config';
 /* eslint-disable @nx/enforce-module-boundaries */
 // nx-ignore-next-line
 import { ProjectGraphClientResponse } from 'nx/src/command-line/graph/graph';
 /* eslint-enable @nx/enforce-module-boundaries */
 import { getProjectGraphDataService } from './hooks/get-project-graph-data-service';
 import { TasksSidebarErrorBoundary } from './feature-tasks/tasks-sidebar-error-boundary';
+import { getEnvironmentConfig } from '@nx/graph/environment-hook';
 
 const { appConfig } = getEnvironmentConfig();
 const projectGraphDataService = getProjectGraphDataService();

@@ -86,7 +86,8 @@ function buildEnvironmentJs(
         id: 'local',
         label: 'local',
         projectGraphUrl: 'project-graph.json',
-        taskGraphUrl: 'task-graph.json'
+        taskGraphUrl: 'task-graph.json',
+        workspaceRoot: '${workspaceRoot}',
       }
     ],
     defaultWorkspaceId: 'local',

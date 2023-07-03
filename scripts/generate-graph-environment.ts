@@ -33,6 +33,7 @@ function writeFile() {
         label: id,
         projectGraphUrl: join('assets/generated-project-graphs/', filename),
         taskGraphUrl: join('assets/generated-task-graphs/', filename),
+        workspaceRoot: join(__dirname, '../'),
       };
     });
   } catch {
@@ -50,6 +51,7 @@ function writeFile() {
         label: id,
         projectGraphUrl: join('assets/project-graphs/', filename),
         taskGraphUrl: join('assets/task-graphs/', filename),
+        workspaceRoot: join(__dirname, '../'),
       };
     });
   } catch {

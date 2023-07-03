@@ -1,6 +1,7 @@
 import { memo } from 'react';
-import { WorkspaceData, GraphPerfReport } from '../interfaces';
+import { GraphPerfReport } from '../interfaces';
 import { Dropdown } from '@nx/graph/ui-components';
+import { WorkspaceData } from '@nx/graph/environment-hook';
 
 export interface DebuggerPanelProps {
   projects: WorkspaceData[];

@@ -3,7 +3,21 @@
 import type { ProjectGraphClientResponse } from 'nx/src/command-line/graph/graph';
 /* eslint-enable @nx/enforce-module-boundaries */
 import { useRef } from 'react';
-import { AppConfig } from '../interfaces';
+
+export interface AppConfig {
+  showDebugger: boolean;
+  showExperimentalFeatures: boolean;
+  workspaces: WorkspaceData[];
+  defaultWorkspaceId: string;
+}
+
+export interface WorkspaceData {
+  id: string;
+  label: string;
+  projectGraphUrl: string;
+  taskGraphUrl: string;
+  workspaceRoot?: string;
+}
 
 export function useEnvironmentConfig(): {
   exclude: string[];

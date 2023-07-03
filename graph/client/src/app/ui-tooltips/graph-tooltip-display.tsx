@@ -16,6 +16,7 @@ export function TooltipDisplay() {
     () => tooltipService.currentTooltip
   );
   let tooltipToRender;
+
   if (currentTooltip) {
     switch (currentTooltip.type) {
       case 'projectNode':

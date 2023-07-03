@@ -6,13 +6,6 @@ import type {
 } from 'nx/src/command-line/graph/graph';
 /* eslint-enable @nx/enforce-module-boundaries */
 
-export interface WorkspaceData {
-  id: string;
-  label: string;
-  projectGraphUrl: string;
-  taskGraphUrl: string;
-}
-
 export interface WorkspaceLayout {
   libsDir: string;
   appsDir: string;
@@ -26,13 +19,6 @@ export interface ProjectGraphService {
 
 export interface Environment {
   environment: 'dev' | 'watch' | 'release';
-}
-
-export interface AppConfig {
-  showDebugger: boolean;
-  showExperimentalFeatures: boolean;
-  workspaces: WorkspaceData[];
-  defaultWorkspaceId: string;
 }
 
 export interface GraphPerfReport {

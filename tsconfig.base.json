@@ -31,6 +31,7 @@
       "@nx/expo": ["packages/expo"],
       "@nx/expo/*": ["packages/expo/*"],
       "@nx/express": ["packages/express"],
+      "@nx/graph/environment-hook": ["graph/environment-hook/src/index.ts"],
       "@nx/graph/ui-components": ["graph/ui-components/src/index.ts"],
       "@nx/graph/ui-graph": ["graph/ui-graph/src/index.ts"],
       "@nx/graph/ui-tooltips": ["graph/ui-tooltips/src/index.ts"],
